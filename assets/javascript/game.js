@@ -34,7 +34,7 @@ document.onkeyup = function(event) {
     else if ((userGuess !== computerGuess) && (guessesleft >= 1)) {
       guessesleft--;
       guesses.push(userGuess);
-      console.log("testing")
+      console.log("user is guessing: " + userGuess);
 
     }
 
@@ -46,15 +46,16 @@ document.onkeyup = function(event) {
       guesses = [];
       computerGuess  = letters[Math.floor(Math.random()*letters.length)];
       console.log("Computer Guess " + computerGuess);
-  
+
     };
 
+    //
     var html =
     "<p> Guess what letter I'm thinking of..." + "</p>" +
     "<p> Wins: " + wins + "</p>" +
     "<p> Losses: " + losses + "</p>" +
     "<p> Guesses Left: " + guessesleft + "</p>" +
-    "<p> Your Guesses so far: " + guesses + "</p>";
+    "<p> Your Guesses so far: " + guesses + " " + "</p>";
 
     document.querySelector("#game").innerHTML = html;
 
