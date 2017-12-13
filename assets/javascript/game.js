@@ -28,29 +28,34 @@ document.onkeyup = function(event) {
       guesses = [];
       letters[Math.floor(Math.random()*letters.length)];
       console.log("Computer Guess " + computerGuess);
-      document.getElementById("#lossesText").innerHTML(losses);
-    };
+    }
 
     // Guessing condition
-    if ((userGuess !== computerGuess) && (guessesleft >= 1)) {
+    else if ((userGuess !== computerGuess) && (guessesleft >= 1)) {
       guessesleft--;
       guesses.push(userGuess);
-      var guessArray = document.getElementById("#guessesText");
-      guessArray.appendChild("<p>" + guesses + "</p>");
-    };
+      console.log("testing")
+
+    }
 
     // Winning condition
-    if (userGuess === computerGuess) {
+    else {
       wins++;
       alert("You're a psychic! But I have a feeling you already knew that.")
       guessesleft = 9;
       guesses = [];
       computerGuess  = letters[Math.floor(Math.random()*letters.length)];
       console.log("Computer Guess " + computerGuess);
-      document.getElementById("#winsText").innerText(wins);
+  
     };
 
+    var html =
+    "<p> Guess what letter I'm thinking of..." + "</p>" +
+    "<p> Wins: " + wins + "</p>" +
+    "<p> Losses: " + losses + "</p>" +
+    "<p> Guesses Left: " + guessesleft + "</p>" +
+    "<p> Your Guesses so far: " + guesses + "</p>";
 
-
+    document.querySelector("#game").innerHTML = html;
 
 };
