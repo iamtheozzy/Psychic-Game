@@ -23,24 +23,30 @@ document.onkeyup = function(event) {
     // Losing condition
     if ((userGuess !== computerGuess) && (guessesleft === 0)){
       losses++;
-      alert("You have guessed incorrectly...");
+      alert("Sneaky sneaky! You're no Psychic!");
       guessesleft = 9;
       guesses = [];
+      letters[Math.floor(Math.random()*letters.length)];
+      console.log("Computer Guess " + computerGuess);
       document.getElementById("#lossesText").innerHTML(losses);
-    }
+    };
+
     // Guessing condition
-    else if ((userGuess !== computerGuess) && (guessesleft >= 1)) {
+    if ((userGuess !== computerGuess) && (guessesleft >= 1)) {
       guessesleft--;
       guesses.push(userGuess);
-      document.getElementById("#guessesText").innerText(guessesleft);
-      document.getElementById("#gsf").innerHTML(guesses);
-    }
+      var guessArray = document.getElementById("#guessesText");
+      guessArray.appendChild("<p>" + guesses + "</p>");
+    };
+
     // Winning condition
-    else if (userGuess === computerGuess) {
+    if (userGuess === computerGuess) {
       wins++;
-      alert("You got it!!!!")
+      alert("You're a psychic! But I have a feeling you already knew that.")
       guessesleft = 9;
       guesses = [];
+      computerGuess  = letters[Math.floor(Math.random()*letters.length)];
+      console.log("Computer Guess " + computerGuess);
       document.getElementById("#winsText").innerText(wins);
     };
 
